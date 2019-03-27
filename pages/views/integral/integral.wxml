@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="font-large-x title_text">味知积分兑换</view>
+  <view class='recommend-list'>
+    <view class='recommend-item btn' wx:for="{{recommendList}}" wx:key="index" data-item="{{item}}" bind:tap="recommendTo">
+      <view class='item-pic' id='box'>
+        <image bindload="imageLoad" style='{{item.style}}' wx:if="{{item.Cover}}" data-index='{{index}}' src='{{domainName+item.Cover}}'></image>
+      </view>
+      <view class='item-info'>
+        <view class='item-info-tit'>
+          <view class=' icon-box name'>
+            <view class=" overtext1">{{item.Name}}</view>
+            <text class='icon txt icon-arrow-right'></text>
+          </view>
+        </view>
+        <!-- {{item.Intr}} -->
+        <text class='item-info-h6 font-medium'>所需积分：{{item.Point}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<image class="background" src="../../assets/images/recommend-bg.png"></image>

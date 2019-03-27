@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "head": "/pages/components/header/header",
+    "toast": "../../components/toast/toast"
+  }
+}

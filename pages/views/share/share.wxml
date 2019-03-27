@@ -1,0 +1,24 @@
+<!--pages/views/share/share.wxml-->
+<view id='box'>
+  <image style='{{style}}' bindload='imageLoad' wx:if="{{src}}" src='{{src}}'></image>
+</view>
+<view class='font-medium title containers'>
+  <view>实验课题：{{title}}</view>
+  <view>实验时间：{{time}}</view>
+</view>
+<view class='bottom-box'>
+  <view class="inner containers">
+    <image class='head head-img' mode='widthFix' wx:if="{{head}}" src='{{head}}'></image>
+    <view class='text font-large'>味知探索者：
+      <text>{{name}}</text>
+    </view>
+    <view class='txt font-medium'>我在未知实验室，探索关于鸡尾酒的秘密。</view>
+    <view class='txt font-medium'>你也一起来吧！</view>
+  </view>
+  <view class="bottom">
+    <view class="line"></view>
+    <view class='btn-box'>
+      <view class="emption btn" bind:tap="purchaseTo">前往首页</view>
+    </view>
+  </view>
+</view>

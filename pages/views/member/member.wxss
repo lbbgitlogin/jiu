@@ -1,0 +1,368 @@
+.container {
+  height: auto;
+  min-height: 100vh;
+}
+
+.container-nav {
+  overflow: hidden;
+  height: 0rpx;
+  transition: height 0.5s;
+}
+
+.container-nav.switch {
+  height: 455rpx;
+}
+
+
+
+.hoppy-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.nav-item {
+  display: block;
+  padding: 15rpx 0;
+  width: 199rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  color: #695941;
+  font-size: 30rpx;
+  text-align: center;
+  margin-bottom: 25rpx;
+  border: 3rpx solid #695941;
+  opacity: 0.8;
+}
+.nav-item:nth-child(3n+3) {
+  margin-right: 0;
+}
+
+.nav-item.active {
+  opacity: 1;
+  color: #a98d62;
+  border: #a98d62 3rpx solid;
+}
+
+.form {
+  padding: 60rpx 0;
+  font-size: 24rpx;
+  min-height: 100%;
+}
+
+.form .icon {
+  color: #836a48;
+}
+
+.header {
+  margin-bottom: 48rpx;
+}
+
+.avatar {
+  width: 148rpx;
+  height: 148rpx;
+  border-radius: 50%;
+  border: 1px solid #a98d63;
+  margin: 0 auto;
+  margin-bottom: 24rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.avatar text {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 20rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+  color: #fff;
+  opacity: 0.6;
+  background-color: #000;
+  /* background-color: red; */
+}
+
+.username {
+  font-size: 28rpx;
+  color: #ad8f62;
+  text-align: center;
+}
+
+.nickname.nicknameFocus, .phone.phoneFocus {
+  border-bottom: 1px solid #d1cecd;
+}
+
+.mt {
+  margin-bottom: 50rpx;
+}
+
+.nicknameOrsex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item {
+  border-bottom: 1px solid #545350;
+}
+
+/* .item.check .txt{
+  color: #545350;
+} */
+
+.item.active {
+  border-color: #ad8f62;
+}
+
+.item.check .txt {
+  color: #ad8f62;
+}
+
+.nickname {
+  width: 299rpx;
+  height: 70rpx;
+  color: #545350;
+}
+
+.nickname-tit {
+  font-size: 20rpx;
+  color: #545350;
+}
+
+.nickname.nicknameFocus .nickname-tit, .phone.phoneFocus .phone-tit {
+  color: #545350;
+}
+
+.nickname-input {
+  height: 46rpx;
+  color: #545350;
+}
+
+.nickname-input input {
+  height: 46rpx;
+  line-height: 46rpx;
+  font-size: 28rpx;
+  color: #a98d62;
+}
+
+.nickname.nicknameFocus .nickname-input input, .phone.phoneFocus input {
+  color: #d1cecd;
+}
+
+.sex {
+  width: 299rpx;
+  height: 70rpx;
+}
+
+.sex-tit {
+  font-size: 20rpx;
+  color: #545350;
+}
+
+.sex .picker {
+  height: 46rpx;
+  line-height: 46rpx;
+  font-size: 28rpx;
+  color: #a98d62;
+  display: flex;
+  position: relative;
+}
+
+.sex picker {
+  width: 100%;
+}
+
+.sex .picker label {
+  margin-right: 20rpx;
+}
+
+.picker .icon {
+  text-align: right;
+  position: absolute;
+  right: 0rpx;
+}
+
+.phone {
+  height: 68rpx;
+}
+
+.phone-tit {
+  font-size: 20rpx;
+  color: #545350;
+}
+
+.phone input {
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 28rpx;
+  color: #a98d62;
+}
+
+.code {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 75rpx;
+}
+
+.code-left {
+  display: flex;
+  height: 69rpx;
+  line-height: 69rpx;
+  border-bottom: 1px solid #8f7650;
+  font-size: 20rpx;
+  color: #907650;
+  width: 416rpx;
+  padding-left: 8rpx;
+}
+
+.code-left input {
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  height: 69rpx;
+  line-height: 69rpx;
+}
+
+.btn-code {
+  width: 187rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  text-align: center;
+  border: 3rpx solid #8f7550;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: #8e744f;
+}
+
+.birth {
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.birth label {
+  font-size: 20rpx;
+  color: #545350;
+  white-space: nowrap;
+  margin-right: 20rpx;
+}
+
+.birth picker {
+  width: 100%;
+  height: 46rpx;
+  line-height: 46rpx;
+  font-size: 28rpx;
+}
+
+.date-text {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: 58rpx;
+  color: #ad8f62;
+}
+
+.birth .icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #545350;
+  text-align: right;
+  width: auto;
+  height: auto;
+  transform: translateY(-10rpx);
+}
+.birth.active .icon{
+  color: #ad8f62;
+}
+
+.phones .icon {
+  position: absolute;
+  right: 0;
+  bottom: 15rpx;
+  color: #545350;
+  text-align: right;
+  width: 26rpx;
+  transform-origin: center;
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+}
+
+.phones .icon.rotate {
+  transform: rotate(45deg);
+}
+
+.btn-sure {
+  width: 100%;
+  margin-bottom: 15rpx;
+  text-align: center;
+}
+
+.txt-box {
+  margin-top: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #939191;
+  font-size: 20rpx;
+}
+
+.point-reward {
+  font-size: 20rpx;
+  color: #939191;
+  text-align: center;
+  cursor: pointer;
+  padding-bottom: 4rpx;
+}
+
+.point-reward text {
+  font-size: 20rpx;
+  color: #939191;
+  padding-bottom: 4rpx;
+  text-decoration: underline;
+}
+
+.prompt {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+
+.prompt .prompt-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 575rpx;
+  height: 600rpx;
+  overflow: hidden;
+}
+
+.prompt .prompt-content .close {
+  width: 60rpx;
+  height: 62rpx;
+  text-align: center;
+  line-height: 62rpx;
+  margin-bottom: 12rpx;
+  float: right;
+}
+
+.prompt .prompt-content .close image {
+  width: 32rpx;
+  height: 37rpx;
+}
+
+.prompt .prompt-content .plank {
+  width: 99%;
+  height: 413rpx;
+}

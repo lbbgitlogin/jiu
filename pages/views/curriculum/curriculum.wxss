@@ -1,0 +1,257 @@
+.containers {
+  padding: 0;
+  width: 100%;
+}
+
+.containers .big-picture {
+  height: 460rpx;
+  width: 100%;
+  padding-top: 60rpx;
+  transition: all 0.3s;
+  position: fixed;
+  overflow: hidden;
+  z-index: 20;
+  top: 0;
+}
+
+.containers .big-picture-sham {
+  height: 460rpx;
+  transition: all 0.3s;
+}
+
+.containers .big-picture .header {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.containers .header .header-right {
+  width: 170rpx;
+  float: right;
+}
+
+.containers .header .header-right .share {
+  display: block;
+  width: 50rpx;
+  height: 50rpx;
+  background-color: transparent;
+  padding: 0;
+  margin-right: 56rpx;
+  overflow: hidden;
+  float: right;
+  border: none;
+}
+.containers .header .header-right  .share image {
+  width: 40rpx;
+  height: 40rpx;
+  left: 0;
+  right: 0;
+}
+
+.containers .header .header-right .share::after {
+  border: 0;
+}
+
+.containers .header .header-right .share image {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+.containers .header .header-right image {
+  width: 37rpx;
+  height: 36rpx;
+}
+
+.containers .header .header-right image.picture {
+  margin-right: 40rpx;
+}
+
+.containers .big-picture .bottom {
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  padding: 60rpx 56rpx 40rpx 56rpx;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.containers .big-picture .bottom .contents {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.containers .big-picture image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: -1rpx;
+}
+
+.containers .bottom .title {
+  display: block;
+  font-size: 32rpx;
+  line-height: 75rpx;
+  letter-spacing: 3rpx;
+  font-weight: bold;
+}
+
+.containers .bottom .date {
+  display: block;
+  font-size: 24rpx;
+  color: #d0cecc;
+  letter-spacing: 3rpx;
+}
+
+.containers .summary {
+  width: 100%;
+  padding: 0 56rpx;
+  margin: 0 auto;
+  padding-top: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.containers .summary .title {
+  display: block;
+  font-size: 32rpx;
+  line-height: 40rpx;
+  font-weight: blod;
+  letter-spacing: 3rpx;
+}
+
+.containers .summary .text {
+  display: block;
+  font-size: 25rpx;
+  line-height: 50rpx;
+  letter-spacing: 0.03em;
+}
+
+.containers .summary .difficulty {
+  font-size: 25rpx;
+  line-height: 50rpx;
+  color: #ad8f62;
+}
+
+.containers .summary .difficulty .star {
+  display: inline-block;
+}
+
+.containers .summary .difficulty image {
+  width: 25rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+  -webkit-filter: brightness(0.6);
+}
+
+.containers .summary .difficulty image.lighten {
+  width: 25rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+  -webkit-filter: brightness(1);
+}
+
+.containers .summary-border {
+  height: 2rpx;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(40, 40, 40, 0.1) 0%, rgba(40, 40, 40, 0.2) 10%, rgba(40, 40, 40, 0.4) 20%, rgba(40, 40, 40, 0.6) 30%, rgba(40, 40, 40, 0.8) 40%, rgba(40, 40, 40, 0.8) 50%, rgba(40, 40, 40, 0.8) 60%, rgba(40, 40, 40, 0.6) 70%, rgba(40, 40, 40, 0.4) 80%, rgba(40, 40, 40, 0.2) 90%, rgba(40, 40, 40, 0.1) 100%);
+}
+
+.containers .curriculum-detail {
+  width: 100%;
+  padding: 0 56rpx;
+  margin: 0 auto;
+}
+
+.containers .curriculum-detail .video {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+
+.containers .curriculum-detail .label {
+  padding-top: 25rpx;
+  line-height: 80rpx;
+  letter-spacing: 5rpx;
+}
+
+.containers .curriculum-detail text {
+  line-height: 30rpx;
+  letter-spacing: 5rpx;
+}
+
+.containers .curriculum-detail .text .barCode {
+  display: block;
+  width: 170rpx;
+  height: 170rpx;
+  margin: 0 auto;
+  margin-top: 50rpx;
+  margin-bottom: 30rpx;
+  padding: 0;
+  border: none;
+  border-radius: none;
+  background-color: transparent;
+}
+
+.containers .curriculum-detail .text .barCode image {
+  width: 100%;
+  height: 100%;
+}
+
+.containers .curriculum-detail .text .preserve {
+  display: block;
+  width: 216rpx;
+  height: 48rpx;
+  margin: 0 auto;
+}
+
+.containers .enroll-btn {
+  border: 5rpx solid #a98d63;
+  height: 70rpx;
+  border-radius: 20rpx;
+  font-size: 35rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #b18d58;
+  position: fixed;
+  width: 90%;
+  bottom: 35rpx;
+  margin: 0 auto;
+}
+
+.containers > .bottom {
+  width: 100%;
+  position: fixed;
+  padding: 0 56rpx;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containers > .bottom.iphoneX {
+  padding-bottom: 20rpx;
+}
+
+.containers .bottom-sham {
+  height: 180rpx;
+}
+
+.containers .bottom .emption {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  margin-bottom: 60rpx;
+}
+
+.is-image {
+  font-size: 0;
+  margin-bottom: 0 !important;
+}
+
+.t_txt {
+  opacity: 0.9;
+}

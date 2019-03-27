@@ -1,0 +1,38 @@
+/* 小程序自定义头部bar */
+.navigationBar {
+    width: 100%;
+  }
+  .navigationBar > view {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .navigationBar text {
+    height: 100%;
+    color: #fff;
+    font-size: 36rpx;
+    height: 36rpx;
+    line-height: 1;
+  }
+  .navigationBar .title {
+    width: 100%;
+    text-align: center;
+  }
+  .navigationBar .back {
+    position: absolute;
+    left: 30rpx;
+    top: 0;
+    width: 200rpx;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .navigationBar .back .ic {
+    width: 16rpx;
+    height: 30rpx;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAdCAYAAACjbey/AAABn0lEQVRIS7WVMUtcQRSFv9MEEQOCYEDBQGKRJo1pTKOVhSamsLKyWrHQ0k7tsnYp1047Oy0MISHRkOgf0S5oK0RFkxNmmZVh3Ldv1+BtHgxzvnfvnTN3RIdh+y1Qi7KKOtFH8S7wKOpO2gbYngA+Al3JT8/aAtgeBz4D3VnGC6UA26+Br8DjTLwiab0lwPYr4ADozcTvJa2FtUKA7ZfAD6AvE3+QtNxYawqw/QL4CTzJxDVJS+naHYDt58AhMJiJN4F5SS4E2H4axeGbxjYwJ+lv7pvbDGwPAEdAyCCNHWBW0p9mpqsDbPfHP4fa0/gEzEi6LnKsbIcuh26HrqfxDXgn6apIXD9G23thY7YpNHFS0kUrcQNwDvQkGy+BZ5J+lYnLMpiS9LsM0qoH+8B0aQ/++xQaKUYfhOYNZ2mHARJ8cFPogwQyFM3UuRMTSNFd2AIqLe9CAim6jRuSFtNSHmYeJJmMAN+bTKSqpNW6kcqMYnsUCPcin4mrkqqlgOiTMeDLvaZyUk6zd+G0rQwSSHjW0pfpuCNALOcNsBGhlX8dKZrqPIh8twAAAABJRU5ErkJggg==");
+  }
+  .navigationBar .back text {
+    margin-left: 10rpx;
+    color: #000;
+  }

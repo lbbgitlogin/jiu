@@ -1,0 +1,349 @@
+.content {
+  min-height: 100%;
+}
+.card_bg {
+  width: 100%;
+  position: relative;
+}
+
+.btns {
+  width: 100%;
+  position: absolute;
+  bottom: 25rpx;
+  padding: 0 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.num {
+  color: #ad8f62;
+}
+
+.num text {
+  margin-left: 0.2em;
+  letter-spacing: 0.2em;
+}
+
+.btns .btn {
+  border-color: transparent;
+  color: #ad8f62;
+  width: 190rpx;
+  height: auto;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+.btns .btn image{
+  width: 15rpx;
+  margin-right: 6rpx;
+}
+.btns .btn text{
+  text-decoration: underline;
+}
+
+.txt {
+  color: #8d734f;
+  font-size: 24rpx;
+}
+
+.lines {
+  margin: 45rpx auto;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, rgba(172, 142, 84, 0.1) 0%, rgba(172, 142, 84, 1) 50%, rgba(172, 142, 84, 0.1) 100%);
+}
+
+.curriculum {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.curriculum .select {
+  margin: 0 auto;
+  margin-top: 25rpx;
+  text-align: left;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+picker {
+  width: 100%;
+}
+
+.curriculum .select .picker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 18rpx;
+  background-color: #291a0a;
+}
+
+.curriculum .select .picker .label {
+  font-size: 25rpx;
+  background-color: #291a0a;
+  color: #635036;
+  flex: 4;
+}
+
+.curriculum .select .picker .value {
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: #291a0a;
+  flex: 4;
+  text-align: center;
+}
+
+.curriculum .select .picker .down {
+  flex: 4;
+  text-align: right;
+}
+
+.curriculum .select .picker .down text {
+  font-size: 25rpx;
+  background-color: #291a0a;
+  color: #635036;
+}
+
+.txt-scroll{
+  width: 100%;
+  height:140rpx;
+}
+
+/* 列表 */
+
+.recommend-list {
+  margin-top: 25rpx;
+}
+
+.recommend-item {
+  border: 3rpx solid #b18d58;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #b18d58;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 25rpx;
+  overflow: hidden;
+  display: flex;
+  height: 195rpx;
+}
+
+.item-pic {
+  width: 212rpx;
+  height: 100%;
+  border-right: 2rpx solid #a98d63;
+  position: relative;
+  overflow: hidden;
+}
+
+.item-pic image {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.item-info {
+  padding: 35rpx 0;
+  padding-left: 62rpx;
+  width: 410rpx;
+}
+
+.item-info-tit {
+  font-size: 28rpx;
+  color: #ad8f62;
+  margin-bottom: 8rpx;
+  height: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 40rpx;
+}
+
+.item-info-h6 {
+  display: block;
+  color: #8d734f;
+  box-sizing: border-box;
+  padding-right: 40rpx;
+  width: 100%;
+  line-height: 30rpx;
+  height: 50rpx;
+  overflow: hidden;
+}
+
+.ds {
+  border-bottom: 1rpx solid #8d734f;
+  padding-bottom: 2rpx;
+}
+
+.item-info-difficult {
+  display: flex;
+}
+
+.difficult-tit {
+  color: #5f4c35;
+}
+
+.difficult-pic image {
+  width: 25rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+  opacity: 0.4;
+}
+
+.difficult-pic image.lighten {
+  opacity: 1;
+}
+
+.title_text {
+  padding-bottom: 26rpx;
+}
+
+.inner {
+  height: 722rpx;
+  background: #fff;
+  color: #000;
+}
+
+.box {
+  padding: 45rpx 25rpx;
+}
+
+.box .title {
+  display: flex;
+  align-items: center;
+}
+
+.desc {
+  padding-top: 6rpx;
+  padding-bottom: 10rpx;
+}
+
+.inner .btn {
+  width: 340rpx;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.inner .btn.sign {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 50rpx;
+}
+
+.inner .img-box {
+  width: 100%;
+  height: 323rpx;
+  background: #000;
+  margin: 0;
+  border-radius: 0;
+}
+
+.icon-img {
+  width: 70rpx;
+  position: absolute;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+  left: 0;
+}
+
+.right {
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+  right: 0;
+}
+
+.icon-img image {
+  width: 20rpx;
+}
+
+swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.img-boxs {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.img-boxs image {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inner .txt {
+  color: #000;
+  opacity: 0.5;
+  line-height: 30rpx;
+  padding: 15rpx 0;
+}
+
+.tips {
+  padding-top: 50rpx;
+}
+
+.tips .txt {
+  padding-bottom: 20rpx;
+}
+
+.inners {
+  height: 185rpx;
+  text-align: center;
+}
+
+.inners .txts {
+  margin-top: 50rpx;
+  color: #8d734f;
+}
+
+.inners .send {
+  position: absolute;
+  width: 395rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 50rpx;
+}
+.inners .h1{
+  margin-top: 50rpx;
+  padding-bottom: 25rpx;
+}
+
+
+.tip-inner{
+  height: 290rpx;
+  font-size: 22rpx;
+  padding-top: 60rpx;
+  text-align: center;
+}
+.tip-inner .txt{
+  margin-bottom: 25rpx;
+}
+.tip-inner .btn{
+  background: transparent;
+  width: 390rpx;
+}

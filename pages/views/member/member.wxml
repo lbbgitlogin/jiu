@@ -1,0 +1,76 @@
+<view class="container" bind:tap="containerTap">
+  <view class="form">
+    <form>
+      <view class='header'>
+        <view class='avatar' bind:tap="avatar">
+          <image style='width:100%;height:100%;' src='{{userInfo.HeadImage}}'></image>
+          <text>更换</text>
+        </view>
+        <view class='username'>未知探索者 LV{{userInfo.VipPoint}}</view>
+      </view>
+      <view class='mt nicknameOrsex'>
+        <view class="nickname item {{nicknameFocus?'check':''}} {{userInfo.NickName ? 'active' : ''}}" data-type="nicknameFocus" catch:tap="inputFocus">
+          <view class='nickname-tit txt'>昵称</view>
+          <view class='nickname-input'>
+            <input focus="{{nicknameFocus}}" bindinput="bindKeyInput" value='{{userInfo.NickName}}'></input>
+          </view>
+        </view>
+        <view class='sex item {{genderIndex==0 ||genderIndex ?"active":""}}'>
+          <view class='sex-tit  txt'>性别</view>
+          <view class='picker'>
+            <picker value='{{genderIndex}}' range-key="name" range='{{gender}}' bindchange="sexChange">
+              <text>{{gender[genderIndex].name}}</text>
+              <text class='icon icon-arrow-down'></text>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <!-- 手机号码 -->
+      <view class="mt item phone {{phoneFocus?'check':''}} {{ userInfo.Phone ? 'active' : ''}}" data-type="phoneFocus" catch:tap="inputFocus">
+        <view class='phone-tit  txt'>手机号码</view>
+        <input focus="{{phoneFocus}}" bindinput="phoneKeyInput" placeholder='' value='{{userInfo.Phone}}' type='tel'></input>
+      </view>
+      <!-- 验证码 -->
+      <!-- <view class='code'>
+        <view class='code-left'>
+          <text>验证码</text>
+          <input></input>
+        </view>
+        <view class='btn-code'>获取</view>
+      </view> -->
+      <!-- 出生日期 -->
+      <view class='mt item birth {{dataFlag?"check":""}}  {{userInfo.Birthday?"active":""}}' catchtap='dataClick'>
+        <view class='phone-tit  txt'>出生日期：</view>
+        <picker mode="date" bindcancel="containerTap" bindchange="bindDateChange" value="{{userInfo.Birthday}}" start="1910-09-01" end="2018-09-30">
+          <text class='date-text'>{{userInfo.Birthday ? userInfo.Birthday : '' }}</text>
+        </picker>
+        <text class='icon icon-arrow-down txt'></text>
+      </view>
+      <!-- 兴趣偏好 -->
+      <view class='mt item phone phones  {{switch?"check":""}}  {{userInfo.Hobby||hoppyFocusFlag? "active" : ""}}' catchtap='hoppyFoucus'>
+        <view class='phone-tit  txt'>兴趣偏好：</view>
+        <input placeholder='' disabled value='{{userInfo.Hobby}}' type='text'></input>
+        <image class='icon {{ hoppyFocusFlag ?"rotate":""}}' mode='widthFix' src='../../assets/images/close1{{ hoppyFocusFlag ||userInfo.Hobby  ?"s":""}}.png'></image>
+        <!-- <text class='icon icon-add'></text> -->
+      </view>
+      <view class="container-nav {{switch ? 'switch': ''}}">
+        <view class='hoppy-box'>
+          <view class="nav-item {{item.check ? 'active':''}}" wx:for="{{hoppyList}}" wx:for-index="index" data-ident='{{index}}' data-item="{{item}}" wx:key="{{item.ID}}" catchtap='recommendSwitch'>{{item.HobbyName}}</view>
+        </view>
+      </view>
+      <!-- 确认修改 -->
+      <view class='btn-sure btn' bind:tap="btnSure">确认修改</view>
+      <!-- 味知积分奖励 -->
+      <view class='btn-sure btn' bind:tap="awardTo">味知积分奖励</view>
+      <!-- 味知积分奖励 -->
+      <view class='txt-box'>
+        <navigator class='point-reward' url='../txt/txt?act=1'>《
+          <text>服务条款</text>》</navigator>
+        和
+        <navigator class='point-reward' url='../txt/txt?act=2'>《
+          <text>隐私条约</text>》</navigator>
+      </view>
+    </form>
+  </view>
+</view>
+<image class="background" src="../../assets/images/recommend-bg.png"></image>

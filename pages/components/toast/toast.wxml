@@ -1,0 +1,12 @@
+<!--pages/components/toast/toast.wxml-->
+<view class="prompt" wx:if="{{promptShow}}" catchtouchmove='handlemove'>
+  <view class="prompt-content " style='{{attrCss}}'>
+    <view class="close" bind:tap="promptClose">
+      <image mode='widthFix' src="../../assets/images/close.png"></image>
+    </view>
+    <image wx:if="{{type=='image'}}" class="plank" mode='widthFix' src="{{path}}"></image>
+    <view class="plank" wx:else="{{type=='html'}}">
+      <slot></slot>
+    </view>
+  </view>
+</view>

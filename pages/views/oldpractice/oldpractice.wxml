@@ -1,0 +1,58 @@
+<view class="container">
+  <view class='container-nav'>
+    <view class="nav-item title_text {{current==0?'active':''}}" data-current='0' bindtap='recommendSwitch'>
+      原味轶事
+    </view>
+    <view class="nav-item title_text {{current==1?'active':''}}" data-current='1' bindtap='recommendSwitch'>
+      玩味轶事
+    </view>
+    <view class="underline" style="left:{{underlineLeft}};"></view>
+  </view>
+  <view class="recommend-list {{iphoneX ? 'iphoneX' : ''}}" wx:if="{{current==0}}">
+    <view class='items' wx:for="{{primary}}" wx:key="index">
+      <view wx:if="{{!item.notComingOut}}" data-id="{{item.ID}}" class='recommend-item btn' bind:tap="recommendItem">
+        <image class="recommend-image" src="{{item.src}}"></image>
+        <view class="bottom b-b">
+          <view class=' icon-box'>{{item.title}}<text class="icon icon-arrow-right txt" ></text></view>
+        </view>
+      </view>
+      <view wx:if="{{item.notComingOut}}" class='recommend-item btn notComingOut'>
+        <image wx:if="{{item.src}}" class="recommend-image" src="{{item.src}}"></image>
+        <view class="shade">
+          <image class='icon' mode='widthFix' src="/pages/assets/oldpractice/await.png" alt=""></image>
+          <view class="text">{{item.name}}</view>
+          <!-- <view class="text">更多轶事调配中</view> -->
+          <view class="text">值得期待</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="recommend-list {{iphoneX ? 'iphoneX' : ''}}" wx:if="{{current==1}}">
+    <view class='index-banner' style='height:{{h}}px'>
+      <view class="swiper_box" bind:touchstart="handletouchtart" catchtouchmove='handletouchmove' bind:touchend='handletouchend'>
+        <view class="swiper_item btn {{item.class}}" data-item="{{item}}" bind:tap="swiperItemTo" wx:for="{{swiperList}}" wx:key="{{index}}">
+          <view class='box'>
+            <image wx:if="{{item.src}}" style='{{item.style}}' data-index='{{index}}' bindload="imageLoad" class="swiper_item_image image" src="{{item.src}}" alt=""></image>
+          </view>
+          <!-- <image wx:if="{{item.src}}" mode='aspectFill' class="swiper_item_image" src="{{item.src}}" alt=""></image> -->
+          <view class="shade" wx:if="{{item.notComingOut}}">
+            <image mode='widthFix' class='icon' src="/pages/assets/oldpractice/await.png" alt=""></image>
+          <!-- <view class="text">更多轶事调配中</view> -->
+            <view class="text">{{item.name}}</view>
+            <view class="text">值得期待</view>
+          </view>
+          <view class="swiper_item_bottom">
+            <view class="swiper_item_upward b-b">
+              <image mode='widthFix' src="/pages/assets/images/arrow.png" alt=""></image>
+            </view>
+          </view>
+          <!-- <view class="bottom" wx:if="{{!item.notComingOut}}"> -->
+            <!-- {{item.title}} -->
+            <!-- <text class="icon icon-arrow-right"></text> -->
+          <!-- </view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<image class="background" src="../../assets/images/recommend-bg.png"></image>

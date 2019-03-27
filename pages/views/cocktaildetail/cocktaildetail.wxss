@@ -1,0 +1,244 @@
+page {
+  height: auto;
+}
+
+
+.content {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+}
+
+.container {
+  background-color: #fff;
+  letter-spacing: 5rpx;
+  position: relative;
+  padding: 0;
+  z-index: 3;
+}
+
+.scroll {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.scroll .boxs {
+  width: 100%;
+  position: relative;
+  padding: 60rpx 56rpx;
+  box-sizing: border-box;
+}
+
+.share_icon {
+  position: absolute;
+  right: 0;
+  width: 40rpx;
+}
+
+.container .header {
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.container .header .header-right {
+  width: 130rpx;
+  height: 50rpx;
+  float: right;
+}
+
+.container .header .header-right image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.container .header .header-right .share {
+  display: block;
+  width: 50rpx;
+  height: 50rpx;
+  background-color: transparent;
+  padding: 0;
+  float: right;
+  border: none;
+}
+
+.container .header .header-right .share::after {
+  border: 0;
+}
+
+.container .header .header-right .share image {
+  float: right;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.container .header .header-right image.picture {
+  margin-right: 40rpx;
+}
+
+.container .title {
+  font-weight: bold;
+  margin-bottom: 40rpx;
+}
+
+.container .border {
+  width: 50rpx;
+  height: 5rpx;
+  background-color: #b18d58;
+  margin-bottom: 30rpx;
+}
+
+.container .essay text {
+  /* font-size: 28rpx; */
+  line-height: 1.6em;
+}
+
+.bottom-box {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  z-index: 5;
+  bottom: 0rpx;
+  padding-bottom: 60rpx;
+  background-color: #fff;
+}
+
+.btn-box {
+  padding: 0 56rpx;
+  height: 72rpx;
+  display: flex;
+}
+
+.img-box {
+  width: 72rpx;
+  height: 72rpx;
+  margin-right: 24rpx;
+  border-radius: 100%;
+  position: relative;
+}
+
+.img-box image {
+  width: 38rpx;
+  margin-top: 19rpx;
+  margin-left: 16rpx;
+  position: absolute;
+}
+
+.img-box image.active {
+  margin-top: 16rpx;
+  margin-left: 17rpx;
+}
+
+.bottom {
+  width: 100%;
+  position: relative;
+}
+
+.bottom-sham {
+  height: 160rpx;
+  width: 90%;
+}
+
+.line {
+  height: 1px;
+  margin-top: 0rpx;
+  margin-bottom: 40rpx;
+  width: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.bottom .emption {
+  flex: 1;
+  text-align: center;
+}
+
+.bottom .send {
+  width: 160rpx;
+  text-align: center;
+}
+
+.input-box {
+  display: block;
+  flex: 1;
+  height: 70rpx;
+  line-height: 72rpx;
+  border-bottom: 3rpx solid #b18d58;
+  margin-right: 24rpx;
+  box-sizing: border-box;
+  color: #b18d58;
+}
+
+.is-image {
+  display: block;
+  font-size: 0;
+  margin-bottom: 0 !important;
+}
+
+.txts {
+  opacity: 0.8;
+}
+
+.ul .titles {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 45rpx;
+}
+
+.ul .titles view {
+  color: #4f4f4f;
+}
+
+.ul .titles text {
+  color: #ababab;
+  padding-bottom: 4rpx;
+  letter-spacing: 1rpx;
+  border-bottom: 1rpx solid #ababab;
+}
+
+.li {
+  margin-bottom: 30rpx;
+  display: flex;
+}
+
+.li .head {
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 20rpx;
+}
+
+.detail {
+  flex: 1;
+}
+
+.detail .name {
+  padding-top: 12rpx;
+  padding-bottom: 20rpx;
+  color: #b18d58;
+}
+
+.detail .txt {
+  letter-spacing: 1rpx;
+  line-height: 35rpx;
+  color: #4f4f4f;
+}
+
+.box-scorll {
+  height: 970rpx;
+  box-sizing: border-box;
+  padding: 40rpx 25rpx;
+  background: #fff;
+  border-radius: 10rpx;
+}
+
+.h1 {
+  padding-bottom: 20rpx;
+}
+
+.txt {
+  line-height: 32rpx;
+  color: #232323;
+}

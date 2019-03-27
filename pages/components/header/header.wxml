@@ -1,0 +1,9 @@
+<view class='navigationBar' style='padding-top:{{navigationPadding}};'>
+    <view style='height:{{navigationHeight}};'>
+        <view class='back' catchtap='navigationBack'>
+            <view class='ic'></view>
+            <text>返回</text>
+        </view>
+        <text class='title'>{{title}}</text>
+    </view>
+</view>

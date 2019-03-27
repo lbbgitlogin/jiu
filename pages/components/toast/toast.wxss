@@ -1,0 +1,47 @@
+/* pages/components/toast/toast.wxss */
+
+.prompt {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prompt .prompt-content {
+  /* position: absolute; */
+  /* left: 50%; */
+  /* top: 50%; */
+  /* transform: translate(-50%, -60%); */
+  /* left: 0;
+  right: 0;
+  margin: 0 auto; */
+  display: block;
+  width: 575rpx;
+  overflow: inherit;
+}
+
+.prompt .prompt-content .close {
+  position: absolute;
+  width: 60rpx;
+  height: 62rpx;
+  text-align: center;
+  line-height: 62rpx;
+  margin-bottom: 12rpx;
+  right: -12rpx;
+  top:-72rpx;
+}
+
+.prompt .prompt-content .close image {
+  width: 32rpx;
+  height: 37rpx;
+}
+
+.prompt .prompt-content .plank {
+  width: 100%;
+}

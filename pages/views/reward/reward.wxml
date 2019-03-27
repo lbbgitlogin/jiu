@@ -1,0 +1,84 @@
+<view class="content">
+  <view class="containers">
+    <view class="userinfo-wrap">
+      <view class="userinfo">
+        <view class="user-datum" bindtap='enterMember'>
+          <view class="head-image bo">
+            <image mode="widthFix" src='{{userData.HeadImage}}'></image>
+          </view>
+          <view class="username">{{userData.NickName}}</view>
+        </view>
+        <view class="userlevel">味知积分 {{userData.Point}}
+          <text catchtap='showGule'>积分规则</text>
+        </view>
+      </view>
+    </view>
+    <view class='title title_text'>味知任务</view>
+    <view class='dl'>
+      <view class='dd active'>
+        <view class='txt'>新用户注册 +50</view>
+        <view class='btn tc'>已完成</view>
+      </view>
+      <view class='dd {{userData.Phone?"active":""}}'>
+        <view class='txt'>绑定手机号 +200</view>
+        <view wx:if="{{userData.Phone}}" class='btn tc'>已完成</view>
+        <button wx:else class='btn tc' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">去完成</button>
+      </view>
+      <view class='dd {{userData.SignIn>6?"active":""}}'>
+        <view class='txt'>连续登陆7天 +20</view>
+        <view class='btn tc' catchtap='tipLogin'>去完成</view>
+        <!-- active -->
+      </view>
+      <view class='dd {{isShare?"active":""}}'>
+        <view class='txt active'>分享小程序内容至微信 +20
+          <view class='tips'>（每日限3次）</view>
+        </view>
+        <view wx:if="{{isShare}}" class='btn tc'>已完成</view>
+        <button wx:else class='btn tc' open-type="share">去完成</button>
+      </view>
+      <view class='dd'>
+        <view class='txt'>参与线下实验课 +268</view>
+        <view class='btn tc ' catchtap='goLaboratory'>去完成</view>
+      </view>
+    </view>
+    <view class='btn tc' catchtap='recommendTo'>味知积分兑换</view>
+    <view class='nav'>
+      <view class='title_text {{ident==0?"active":""}}' data-index='0' catchtap='selectNav'>奖励记录</view>
+      <view class='title_text {{ident==1?"active":""}}' data-index='1' catchtap='selectNav'>兑换记录</view>
+    </view>
+    <view class='btn tc' style='height:auto;padding:45rpx 0;'  hidden="{{ident!=0}}">
+      <view wx:if="{{historyList.length}}">
+        <view class='li' wx:for="{{historyList}}" wx:key="{{item.ID}}">{{item.Info}} {{ item.Point
+          < 0 ? item.Point : "+" + item.Point }} </view>
+      </view>
+      <view class="title_text" wx:else>暂无记录</view>
+    </view>
+    <view class='recommend-list' hidden="{{ident!=1}}">
+      <view wx:if="{{recommendList.length}}">
+        <view class='recommend-item btn' wx:for="{{recommendList}}" wx:key="index" data-item="{{item}}">
+          <view class='item-pic' id='box'>
+            <image bindload="imageLoad" style='{{item.style}}' wx:if="{{item.Cover}}" data-index='{{index}}' src='{{domainName+item.Cover}}'></image>
+          </view>
+          <view class='item-info'>
+            <view class='item-info-tit'>
+              <view class=' icon-box name overtext1'>{{item.Name}}
+                <text class='icon txt icon-arrow-right'></text>
+              </view>
+            </view>
+            <!-- {{item.Intr}} -->
+            <text class='item-info-h6 font-medium'>兑换日期：{{item.AddTime}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="title_text" wx:else>暂无记录</view>
+    </view>
+  </view>
+</view>
+<toast id="gule" type="html" attrCss="transform:translateY(-1%);">
+  <view class='btn box'>
+    <view class='h1'>积分规则</view>
+    <view class='txts' wx:for="{{gule}}" wx:key="index">{{item}}</view>
+  </view>
+</toast>
+
+<image class="background" src="../../assets/images/recommend-bg.png"></image>

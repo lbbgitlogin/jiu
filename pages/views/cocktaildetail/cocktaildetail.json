@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mvideo": "/pages/components/mvideo/mvideo",
+    "toast": "../../components/toast/toast"
+  }
+}

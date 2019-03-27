@@ -1,0 +1,123 @@
+<view class='content'>
+  <view class="containers">
+    <view class='card' catchtap='navSign'>
+      <image class='card_bg' mode='widthFix' src='../../assets/images/card_bg2.png'></image>
+      <view class='btns'>
+        <view class='btn  tc' wx:if="{{!signData.IsSignIn}}" catchtap='showReg'>
+          <image mode='widthFix' src='../../assets/images/address1.png'></image>
+          <text style='font-size:18rpx;'>酒吧签到</text>
+        </view>
+        <view class='tc' wx:if="{{signData.IsSignIn}}" style='color:#ad8f62;font-size:18rpx;'>今日已签到</view>
+        <view class='num' style='font-size:18rpx;transform:translateX(4rpx);'>NO:
+          <text>{{cid}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='lines'></view>
+    <view class="curriculum">
+      <text class='title_text font-large-x'>去哪喝</text>
+      <view class="select">
+        <picker bindchange="bindPickerChange" range-key="City" value="{{cityIndex}}" range="{{array}}">
+          <view class="picker btn">
+            <text class="label">城市：</text>
+            <text class="value">{{array[cityIndex].City}}</text>
+            <text class="down"><text class="icon icon-arrow-down"></text></text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='recommend-list'>
+      <view class='recommend-item' wx:for="{{recommendList}}" wx:key="index" data-item="{{item}}" bind:tap="recommendTo">
+        <view class='item-pic' id="box">
+          <image src='{{item.HeadImage ? url+item.imgPath : ""}}' style='{{item.style}}' bindload="imageLoad" data-index='{{index}}'></image>
+        </view>
+        <view class='item-info'>
+          <view class='item-info-tit overtext1'>{{item.Name}}</view>
+          <text class='item-info-h6 font-medium overtext1'>地址：{{item.Address}}</text>
+          <view class=' icon-box'>
+            <text class='ds font-medium-m'>查看详情</text>
+            <text class='txt icon icon-arrow-right'></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 点击出现酒吧 识别位置出现酒吧 -->
+<toast id="toast" type="html" attrCss="transform:translateY(-4%);">
+  <view>
+    <view class='btn inner' style='{{getAct==2?"height:782rpx;":"height:580rpx;"}}'>
+      <view class='img-box btn'>
+        <view hidden='{{count==0}}' class='icon-img left' catchtap='go' data-act='1'>
+          <image mode='widthFix' src='/pages/assets/images/left.png'></image>
+        </view>
+        <view hidden='{{count==galleryList.length - 1}}' class='icon-img right' catchtap='go' data-act='2'>
+          <image mode='widthFix' src='/pages/assets/images/right.png'></image>
+        </view>
+        <swiper current="{{count}}" bindanimationfinish="bindanimationfinish">
+          <swiper-item wx:for="{{galleryList}}" wx:key="index">
+            <view class='img-boxs'>
+              <image mode='widthFix' data-index="{{index}}" src="{{item ? url + item : ''}} "></image>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+      <view class='box'>
+        <view wx:if="{{getAct==2}}" class='title font-large'>{{selectItem.Name}}</view>
+        <view wx:if="{{getAct==2}}" class='desc font-medium'>地址：{{selectItem.Address}}</view>
+        <view wx:if="{{getAct==1}}" class='title font-large' style='margin-top:6rpx;'>
+          <image class='address' mode='widthFix' style='width:22rpx;margin-right:8rpx;' src='../../assets/images/address.png'></image>识别到你在{{selectItem.Name}}</view>
+        <scroll-view wx:if="{{getAct==2}}" scroll-y class='txt-scroll'>
+          <view class='txt'>{{selectItem.Info}}</view>
+        </scroll-view>
+        <view class='desc font-medium' style='color:#b18d58;margin:6rpx 0;margin-top:10rpx;'>注意:每人一天仅有一次签到机会</view>
+      </view>
+      <view class='btn sign' catchtap='sign'>签到</view>
+    </view>
+  </view>
+</toast>
+<!-- 识别到 -->
+<!-- <toast id="layer" type="html">
+  <view>
+    <view class='btn inner' style='height:590rpx;'>
+      <view class='img-box btn'>
+        <image mode='widthFix' src=''></image>
+      </view>
+      <view class='box'>
+        <view class='title font-large'>
+          <image class='address' mode='widthFix' style='width:22rpx;margin-right:8rpx;' src='../../assets/images/address.png'></image>识别到你在船长酒吧The Captain </view>
+        <view class='desc font-medium' style='color:#b18d58;margin:6rpx 0;'>注意:每人一天仅有一次签到机会</view>
+        <view class='btn'>签到</view>
+      </view>
+    </view>
+  </view>
+</toast> -->
+<!-- 没有识别到位置 -->
+<toast id="tips" type="html">
+  <view class='tips btn tc' style='height:215rpx;'>
+    <view class='txt'>未识别你所在位置的酒吧，</view>
+    <view class='txt'>建议到酒吧门口的室外区域</view>
+    <view class='txt'>或者网络信号好的区域重新签到</view>
+  </view>
+</toast>
+
+<!-- 手机授权提示 -->
+<toast id="tips-phone" type="html">
+  <view class='btn tip-inner'>
+    <view class='txt'>签到前需要完成手机号码授权</view>
+    <view class='txt'>实验员申请获得你的手机号码</view>
+    <button class="btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >同意授权</button>
+  </view>
+</toast>
+<!-- 签到失败 -->
+<toast id="signErr" type="html" attrCss="transform:translateY(-50%);">
+  <view>
+    <view class='inners  btn'>
+      <view class='h1  font-large-x'>签到失败</view>
+      <view class='txts  font-medium' style='margin:0;'>{{strInfo}}</view>
+    </view>
+  </view>
+</toast>
+
+
+<image class="background" src="../../assets/images/recommend-bg.png"></image>

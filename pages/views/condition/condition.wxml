@@ -1,0 +1,44 @@
+<!-- <head title="酒吧" bind:navigationBack="navigationBack"></head> -->
+<!-- 提示 -->
+<toast id="toast"></toast>
+<view class='content'>
+  <view class="container">
+    <view class='logo'>
+      <image mode='widthFix' class='logo-img' src='/pages/assets/images/logo.png'></image>
+    </view>
+    <view class='box'>
+      <view class='welcome mb'>
+        <image mode='widthFix' class='logo-img' src='/pages/assets/images/welcome.png'></image>
+      </view>
+      <view class='unknown mb'>
+        <!-- <image mode='widthFix' class='unknown-img' src='/pages/assets/images/{{active?"known":"unknown"}}.png'></image> -->
+        <image mode='widthFix' class='unknown-img' src='/pages/assets/images/unknown.png'></image>
+      </view>
+      <view class='description mb'>
+        <!-- <view class='description-tit'>探索实验室前，请确认您已满18周岁</view> -->
+        <view class='terms' style='margin-bottom:0'>
+          <checkbox-group bindchange="bindchange_checkbox" data-act="a">
+            <checkbox value='1'></checkbox>
+          </checkbox-group>
+          <view class='terms-txt font-medium'>我已满18周岁</view>
+        </view>
+        <view class='terms'>
+          <checkbox-group bindchange="bindchange_checkbox" data-act="b">
+            <checkbox value='1'></checkbox>
+          </checkbox-group>
+          <view class='terms-txt font-medium'>我已阅读并同意
+            <view class='terms-treaty' catchtap='showToast' data-act='1'>服务条款</view>及
+            <view class='terms-treaty' catchtap='showToast' data-act='2'>隐私政策</view>
+          </view>
+        </view>
+      </view>
+      <view class='btn-box'>
+        <button class='btn-start btn {{active}}' open-type="{{check}}" bindgetuserinfo="getUserInfo" bind:tap="btnStart">
+          开始探索
+        </button>
+      </view>
+    </view>
+    <view class='bottom-tit font-medium'>理性饮酒，禁止酒驾，未成年人请勿饮酒</view>
+  </view>
+</view>
+<image mode='widthFix' class="background" src="../../assets/images/welcome-bg.jpg"></image>

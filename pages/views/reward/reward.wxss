@@ -1,0 +1,181 @@
+.background {
+  height: 100%;
+}
+@import "../integral/integral.wxss";
+
+.recommend-list{
+  margin-top: 25rpx;
+}
+
+.content{
+  width: 750rpx;
+  height: 100%;
+}
+.containers {
+  font-size: 24rpx;
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  padding-bottom: 60rpx;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 20;
+  padding-bottom: 15rpx;
+}
+
+.user-datum {
+  display: flex;
+  align-items: center;
+}
+
+.user-datum .head-image {
+  display: flex;
+  width: 82rpx;
+  height: 82rpx;
+  border-radius: 50%;
+  margin-right: 18rpx;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.username {
+  font-size: 26rpx;
+  color: #ad8f62;
+}
+
+.userlevel {
+  color: #ad8f62;
+}
+
+.userlevel text {
+  color: #ad8f62;
+  /* padding-bottom: 1rpx; *//* border-bottom: 1rpx solid #ad8f62; */
+  text-decoration: underline;
+  opacity: 0.9;
+  margin-left: 20rpx;
+}
+
+.li {
+  padding-bottom: 25rpx;
+}
+
+.li:last-child {
+  padding: 0;
+}
+
+.title {
+  padding: 45rpx 0;
+}
+.dd {
+  display: block;
+}
+.dd.active::after{
+  background: linear-gradient(to right, rgba(134, 134, 134, 0.1) 0%, rgba(134, 134, 134, 1) 50%, rgba(134, 134, 134, 0.1) 100%);
+}
+.dd.active .btn{
+  color: rgba(134, 134, 134, 0.8);
+  border-color: rgba(134, 134, 134, 0.8);
+}
+.dd.active .txt{
+  color: rgba(134, 134, 134, 0.8);
+}
+
+.dd::after {
+  position: absolute;
+  display: block;
+  content: '';
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 2rpx;
+  background: linear-gradient(to right, rgba(172, 142, 84, 0.1) 0%, rgba(172, 142, 84, 1) 50%, rgba(172, 142, 84, 0.1) 100%);
+}
+
+.dd .btn {
+  width: 185rpx;
+  height: 45rpx;
+  line-height: 41.5rpx;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  font-size: 24rpx;
+  right: 0;
+  background: transparent;
+}
+.dd .btn.active{
+  background: #ad8f62;
+  color: #fff;
+}
+.dl{
+  margin-bottom: 50rpx;
+}
+
+.dd .txt {
+  padding: 35rpx 0;
+  color: #ad8f62;
+}
+
+.dd .txt.active{
+  padding-top: 20rpx;
+  padding-bottom: 50rpx;
+  position: relative;
+}
+.dd .txt.active .tips{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  font-size: 20rpx;
+  transform: translateX(-10rpx);
+  bottom: 20rpx;
+}
+
+.h1 {
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+  padding-bottom: 10rpx;
+}
+
+.txts {
+  font-size: 20rpx;
+  color: #666;
+  line-height: 35rpx;
+  min-height: 35rpx;
+}
+
+.box {
+  height:994rpx;
+  background: #fff;
+  padding: 40rpx 25rpx;
+}
+
+.nav{
+  width: 100%;
+  display: flex;
+  margin-bottom: 25rpx;
+  overflow: hidden;
+}
+.nav view{
+  display: block;
+  width: 50%;
+  padding-top: 50rpx;
+  padding-bottom: 30rpx;
+  opacity: 0.5;
+  transition: all .2s ease;
+  color: #ad8f62;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ad8f62;
+}
+.nav view.active{
+  opacity: 1;
+}

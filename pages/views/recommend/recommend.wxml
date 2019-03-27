@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="head-title" class='title_text'>鸡尾酒推荐</view>
+  <view class="lable">
+    <text>按基酒筛选：</text>
+    <view class="switch" bind:tap="switch">
+      <image class="{{switch ? 'rotate': ''}}" src='../../assets/images/close.png'></image>
+    </view>
+  </view>
+  <view class="container-nav {{switch ? 'switch': ''}}">
+    <!-- <view style='width:100%;height:20rpx;'></view> -->
+    <view>
+      <view style="animation-delay: 0s;" class="nav-item {{current==1?'active':''}}" data-current='1' bindtap='recommendSwitch'>
+        朗姆酒
+      </view>
+      <view style="animation-delay: .5s;" class="nav-item {{current==2?'active':''}}" data-current='2' bindtap='recommendSwitch'>
+        金酒
+      </view>
+      <view style="animation-delay: 1s;" class="nav-item {{current==3?'active':''}}" data-current='3' bindtap='recommendSwitch'>
+        伏特加
+      </view>
+      <view style="animation-delay: 1.5s;" class="nav-item {{current==4?'active':''}}" data-current='4' bindtap='recommendSwitch'>
+        威士忌
+      </view>
+      <view style="animation-delay: 2s;" class="nav-item {{current==5?'active':''}}" data-current='5' bindtap='recommendSwitch'>
+        圣哲曼
+      </view>
+    </view>
+  </view>
+  <view class='recommend-list'>
+    <view class='recommend-item btn' wx:for="{{recommendList}}" wx:key="index" data-item="{{item}}" bind:tap="recommendTo">
+      <view class='item-pic'>
+        <image src='{{item.Cover ? domainName+item.Cover : ""}}' mode='widthFix'></image>
+      </view>
+      <view class='item-info'>
+        <view class='item-info-tit'>
+          <view class='icon-box'>{{item.Name}}
+            <text class='txt icon icon-arrow-right'></text>
+          </view>
+        </view>
+        <text class='item-info-h6'>{{item.Intr}}</text>
+        <!-- <view class='item-info-difficult'>
+          <text class='difficult-tit'>难度：</text>
+          <view class='difficult-pic'>
+            <image class="{{ index <= (item.Difficult-1) ? 'lighten' : ''}}" wx:for-item="cell"  wx:for="{{5}}" wx:key="index" src='../../assets/images/difficult.png'></image>
+          </view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+</view>
+<image class="background" src="../../assets/images/recommend-bg.png"></image>

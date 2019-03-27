@@ -1,0 +1,41 @@
+<view class="container">
+  <view class='gule font-small' catchtap='showGule'>照片使用声明</view>
+  <view class='box'>
+    <view class="gallery-item" wx:for="{{galleryList}}" wx:key="index" id='box'>
+      <image data-index="{{index}}" bind:tap="openShade" bindload='imageLoad' style='{{item.style}}'  src="{{item.Image ? domainName + item.Image : ''}}"></image>
+    </view>
+  </view>
+</view>
+<view style="display:{{shade ? 'block' : 'none'}};" class='swiper-box containers'>
+  <button class="share" open-type="share">
+    <image class='icon' style='width:32rpx;' mode='widthFix' src="/pages/assets/curriculum/share.png"></image>
+  </button>
+  <view class='swiper-content btn' style='{{h}}'>
+    <view hidden='{{count==0}}' class='icon-img left' catchtap='go' data-act='1'>
+      <image mode='widthFix' src='/pages/assets/images/left.png'></image>
+    </view>
+    <view hidden='{{count==galleryList.length - 1}}' class='icon-img right' catchtap='go' data-act='2'>
+      <image mode='widthFix' src='/pages/assets/images/right.png'></image>
+    </view>
+    <swiper current="{{count}}" bindanimationfinish="bindanimationfinish">
+      <swiper-item wx:for="{{galleryList}}" wx:key="index">
+        <view class='img-box'>
+          <image catchtap='closeShade' mode='widthFix' data-index="{{index}}" src="{{item.Image ? domainName + item.Image : ''}} "></image>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <button class="bottom btn " open-type="{{openSetting}} " bind:tap="preserve">
+    保存至相册
+  </button>
+</view>
+
+<!-- 照片使用声明 -->
+<toast id="gule" type="html">
+  <view class='btn boxs'>
+    <view class='h1'>照片使用声明</view>
+    <view class='txt'>本小程序内所有照片的知识产权均属于百加得洋酒贸易有限公司及其关联公司（下统称“百加得集团”）所有。会员只允许保存和/或分享本人照片。未经百加得集团及照片中的肖像权人事先书面许可，任何人不得丑化、修改照片或将照片用于任何商业用途。对于任何擅自使用的行为，百加得集团不承担任何责任，并保留随时追究其法律责任的权利。</view>
+  </view>
+</toast>
+
+<image class="background " src="../../assets/images/recommend-bg.png "></image>

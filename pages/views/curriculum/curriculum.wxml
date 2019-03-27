@@ -1,0 +1,50 @@
+<view class="containers">
+  <view class="big-picture" style="height: {{pictureHeight + 'rpx'}};">
+    <button class="share" open-type="share">
+      <image class='icon' style='top:0;left:0;width:32rpx;' mode='widthFix' src="/pages/assets/curriculum/share.png"></image>
+    </button>
+    <image mode='widthFix' src="{{detailInfo.Banner}}"></image>
+    <view class="bottom">
+      <view class="contents">
+        <text class="title">{{detailInfo.title}}</text>
+        <text class="date t_txt font-medium">{{detailInfo.Intr || " "}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="big-picture-sham" style="height: {{pictureHeight + 'rpx'}};"></view>
+  <view class="summary">
+    <text class="title">{{detailInfo.alcohol}}</text>
+    <!-- font-size:18rpx; -->
+    <view class="text t_txt font-medium">{{detailInfo.time}}
+      <text style=''>(具体时间以报名页面为准)</text>
+    </view>
+    <!-- <view class="difficulty">
+      <text>难度：</text>
+      <view class="star">
+        <image class="{{ index <= (detailInfo.Difficult-1) ? 'lighten' : ''}}" wx:for="{{5}}" wx:key="index" src='../../assets/images/difficult.png'></image>
+      </view>
+    </view> -->
+  </view>
+  <view class="summary-border"> </view>
+  <view class="curriculum-detail">
+    <!-- <view class="label  font-medium">课程详情：</view> -->
+    <view class="text">
+      <view class="{{item.Type == 'image' ? 'is-image' : ''}}" style="margin-bottom:10rpx;" wx:for="{{detailInfo.Info}}" wx:key="">
+        <text class='t_txt font-medium' wx:if="{{item.Type == 'text'}}">{{item.Info.Info}}</text>
+        <image style="display: block;" wx:if="{{item.Type == 'image'}}" mode='widthFix' src="{{item.Info.Image ? domainName + item.Info.Image : ''}}"></image>
+        <mvideo wx:if="{{item.Type == 'video'}}" front-cover-src="{{item.Info.Cover ? domainName + item.Info.Cover : ''}}" src="{{item.Info.Video}}"></mvideo>
+      </view>
+      <button wx:if="{{detailInfo.QRCode}}" class="barCode" open-type="{{openSetting}}" data-src="{{domainName + detailInfo.QRCode}}" catchtap="preserve">
+        <image mode='widthFix' src="{{ detailInfo.QRCode ? domainName + detailInfo.QRCode : ''}}"></image>
+      </button>
+      <image wx:if="{{detailInfo.QRCode}}" mode='widthFix' style='width:220rpx;display:block;margin:0 auto;' src="/pages/assets/images/txt.png"></image>
+      <!-- <image wx:if="{{detailInfo.QRCode}}" class="preserve" mode='widthFix' src="/pages/assets/curriculum/3.png"></image> -->
+    </view>
+  </view>
+  <view class="bottom-sham">
+  </view>
+  <view class="bottom {{iphoneX ? 'iphoneX' : ''}}">
+    <view class="line"></view>
+    <button class='emption btn' open-type="{{getPhoneNumber}}" bindgetphonenumber="getPhoneNumber"  style='background:transparent;'  bind:tap="emption">报名课程</button> 
+  </view>
+</view>

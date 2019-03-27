@@ -1,0 +1,93 @@
+<!-- index.wxml -->
+<view class="content">
+  <view class="container">
+    <view class="userinfo-wrap">
+      <view class="userinfo" wx:if="{{userInfo}}">
+        <view class="user-datum" bindtap='enterMember'>
+          <view class="head-image bo">
+            <image mode="widthFix" src='{{userInfo.HeadImage}}'></image>
+          </view>
+          <view class="username">{{userInfo.NickName}}</view>
+        </view>
+        <view wx:if="{{userInfo.VipPoint}}" class="userlevel">味知探索者 LV{{userInfo.VipPoint}}</view>
+      </view>
+    </view>
+    <view class='index-banner' style='height:{{h}}px'>
+      <view class="swiper_box" bind:touchstart="handletouchtart" catchtouchmove='handletouchmove' bind:touchend='handletouchend' id='box'>
+        <view class="swiper_item  bo {{item.class}}" bind:tap="swiper_item" data-link="{{item.link}}" wx:for="{{swiperList}}" wx:key="{{index}}">
+          <view class='box'>
+            <image class="swiper_item_image image" style='{{item.style}}' data-index='{{index}}' bindload="imageLoad" src="{{item.src}}" alt=""></image>
+          </view>
+          <view class="swiper_item_bottom">
+            <view class="swiper_item_upward b-b">
+              <image mode='widthFix' src="/pages/assets/images/arrow.png" alt=""></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="laboratory bo" bindtap='goLabPage'>
+      <image class='laboratory-pic btn-icon' src='/pages/assets/images/index-lab.png'></image>
+      <view class='laboratory-txt icon-box'>开始味知实验
+        <text class="txt icon icon-arrow-right"></text>
+      </view>
+    </view>
+    <view class='bottom-menu'>
+      <view class="shop bo" bindtap='navTo'>
+        <image class='shop-pic btn-icon-small' src='/pages/assets/images/index-shop.png'></image>
+        <view class='shop-txt icon-box'>就享购
+          <text class="txt icon icon-arrow-right"></text>
+        </view>
+      </view>
+      <view class="where bo" bind:tap="whereShout">
+        <image class='where-pic btn-icon-small' src='/pages/assets/images/index-drink.png'></image>
+        <view class='where-txt icon-box'>去哪喝
+          <text class="txt icon icon-arrow-right"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<toast id="toast"></toast>
+<toast id="tips" type="html">
+  <view class='btn tip-inner'>
+    <view class='txt'>为了带你进一步的解锁更多实验</view>
+    <view class='txt'>实验员申请获得你的手机号码</view>
+    <button class="btn" open-type="{{getPhoneNumber}}" bindgetphonenumber="getPhoneNumber" data-type='index'>同意授权</button>
+  </view>
+</toast>
+<view class='content member {{showmember}}' catchtouchmove='handlemove'>
+  <view class='member-header'>
+    <view class='useravatar bo'>
+      <image mode="widthFix" src='{{userInfo.HeadImage}}'></image>
+    </view>
+    <view class='member-info'>
+      <view class='member-name'>{{userInfo.NickName}}</view>
+      <view class='member-level'>味知探索者 LV{{userInfo.VipPoint}}</view>
+    </view>
+  </view>
+  <view class='siderBar'>
+    <view class="barItem font-large {{current==index?'active':''}} {{current-1==index?'activepre':''}}" data-current="{{index}}" bindtap='selectItem' wx:for="{{tabList}}" wx:key="{{index}}">
+      <button wx:if="{{index == 0}}" class="getPhoneNumber" open-type="{{getPhoneNumber}}" bindgetphonenumber="getPhoneNumber"></button>
+      <image hidden='{{current==index}}' mode='widthFix' class='icon' src='/pages/assets/images/{{item.icon}}.png'></image>
+      <image hidden='{{current!=index}}' mode='widthFix' class='icon' src='/pages/assets/images/{{item.icon}}s.png'></image>
+      <!-- <text class='icon {{item.icon}}'></text> -->
+      <text class='barItem-txt  font-large '>{{item.name}}</text>
+      <view class='li'></view>
+    </view>
+  </view>
+  <!-- <view class='member-bottom'>
+        <view class='member-set'>
+            <view class='icon icon-shezhi'></view>
+            <view class='member-bottom-txt'>设置</view>
+        </view>
+        <view class='member-sign'>
+            <view class='icon icon-qiandao'></view>
+            <view class='member-bottom-txt'>签到</view>
+        </view>
+    </view> -->
+</view>
+
+<view class='modal' wx:if="{{showmember=='active'}}" bindtap='hidememebr' catchtouchmove='handlemove'></view>
+<image class="background" src="../../assets/images/recommend-bg.png"></image>

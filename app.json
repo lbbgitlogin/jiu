@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/views/index/index",
+    "pages/views/condition/condition",
+    "pages/views/laboratory/laboratory",
+    "pages/views/member/member",
+    "pages/views/recommend/recommend",
+    "pages/views/cocktaildetail/cocktaildetail",
+    "pages/views/curriculum/curriculum",
+    "pages/views/oldpractice/oldpractice",
+    "pages/views/curriculumadmin/curriculumadmin",
+    "pages/views/gallery/gallery",
+    "pages/views/txt/txt",
+    "pages/components/toast/toast",
+    "pages/views/share/share",
+    "pages/views/integral/integral",
+    "pages/views/where/where",
+    "pages/views/sign/sign",
+    "pages/views/reward/reward",
+    "pages/views/rewarddetail/rewarddetail",
+    "pages/views/address/address"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "味知实验室",
+    "navigationBarTextStyle": "white"
+  },
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.1.8",
+      "provider": "wxa75efa648b60994b"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<view class='content'>
+  <view wx:if="{{!btnFlag}}" class='bottom-box'>
+    <view class="bottom">
+      <view class="line"></view>
+      <view class='btn-box' wx:if="{{!commentFlag}}">
+        <view class='img-box btn'  catchtap='showComment' wx:if="{{f}}">
+          <image mode='widthFix' style='width:38rpx;' src='/pages/assets/images/email.png'></image>
+        </view>
+        <view class="emption btn" bind:tap="purchaseTo">{{urltxt}}</view>
+      </view>
+      <view class='btn-box' wx:else>
+        <view class='img-box btn'   catchtap='hideComment'>
+          <image class='active' mode='widthFix' style='width:34rpx;'  src='/pages/assets/images/back.png'></image>
+        </view>
+        <input class='input-box  font-medium' bindinput="bindKeyInput" value='{{inputValue}}' placeholder-style="color: #ad8f62;opacity: 0.4;" placeholder='发表留言'></input>
+        <view class="btn send" catchtap='send'>发布</view>
+      </view>
+    </view>
+  </view>
+  <view class="container">
+    <scroll-view class='scroll' scrollY scroll-with-animation scroll-into-view="{{domId}}" bindscrolltolower="bindscrolltolower">
+      <view class='boxs'>
+        <button class="share" open-type="share">
+          <image class='icon' style='top:0;left:0;width:32rpx;' mode='widthFix' src="/pages/assets/images/share.png"></image>
+        </button>
+        <view class="title font-large-x">{{detailInfo.title}}</view>
+        <view class="border"></view>
+        <view class="essay font-medium">
+          <view class="{{item.Type == 'image' ? 'is-image' : ''}}" wx:for="{{detailInfo.Info}}" wx:key="">
+            <text wx:if="{{item.Type == 'text'}}" class='txts'>{{item.Info.Info}}</text>
+            <image style="display: block;" wx:if="{{item.Type == 'image'}}" mode='widthFix' src="{{item.Info.Image ? domainName + item.Info.Image : ''}}"></image>
+            <view style='position:relative;z-index:20;'>
+              <mvideo wx:if="{{item.Type == 'video'}}" bind:toggle="toggle" front-cover-src="{{item.Info.Cover ? domainName + item.Info.Cover : ''}}" src="{{item.Info.Video}}"></mvideo>
+            </view>
+          </view>
+          <import src="../../wxParse/wxParse.wxml" />
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+        <view wx:if="{{f}}" class='line' style='margin:45rpx 0;'></view>
+        <view wx:if="{{f}}" class='ul' id='ul'>
+          <view class='titles'>
+            <view class='font-medium fw'>用户留言</view>
+            <text class='font-medium-s' catchtap='showGule'>味知实验室留言规范</text>
+          </view>
+          <view class='li' wx:if="{{commonList.length}}" wx:for="{{commonList}}" wx:key="*this">
+            <image class='head head-img' src='{{item.HeadImage}}'></image>
+            <view class='detail'>
+              <view class='name font-medium-x'>{{item.NickName}}:</view>
+              <view class='txt font-medium'>{{item.Info}}</view>
+            </view>
+          </view>
+          <view class='noList tc font-medium-x' wx:if="{{commonList.length==0}}">暂无记录</view>
+        </view>
+        <view class="bottom-sham"></view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<toast id="toast" type="html" attrCss="transform:translateY(-1%);">
+  <view class='box-scorll head-img'>
+    <scroll-view scrollY class='scroll'>
+      <view class='h1 fw font-medium'>味知实验室留言规范</view>
+      <view class='txt font-medium-s' wx:for="{{gule}}" wx:key="{{item}}">{{item}}</view>
+    </scroll-view>
+  </view>
+</toast>

@@ -1,0 +1,47 @@
+<view class="container">
+  <!-- <view class='container-nav'>
+     <view class="nav-item {{current==0?'active':''}}" data-current='0' bindtap='recommendSwitch'>开派对</view>
+     <view class="nav-item {{current==1?'active':''}}" data-current='1' bindtap='recommendSwitch'>自己喝</view>
+     <view class="nav-item {{current==2?'active':''}}" data-current='2' bindtap='recommendSwitch'>约个会</view>
+     <view class="underline" style="left:{{underlineLeft}};"></view>
+   </view> -->
+  <view class="head-title">已结课</view>
+  <view class='txt' hidden='{{swiperList.length}}'>线下实验课结课后将在这里显示</view>
+  <view class='txt' hidden='{{swiperList.length}}'>目前暂无已结课课程</view>
+  <view class='recommend-list'>
+    <view class='recommend-item' wx:for="{{swiperList}}" data-item="{{item}}" wx:key="index" bind:tap="galleryTo">
+      <view class="recommend-item-image-wrap">
+        <image class="recommend-item-image" mode="widthFix" src="{{item.Cover2 ? domainName + item.Cover2 : ''}}"></image>
+      </view>
+      <view class="line"></view>
+      <view class="article">
+        <view class="title font-large-x fw">
+          <text>{{item.Title}}</text>
+          <text class="icon icon-arrow-right"></text>
+        </view>
+        <view class="guest">
+          <text>嘉宾：{{item.Alcohol}}</text>
+          <text>{{item.guest}}</text>
+        </view>
+        <view class="date">
+          <text>{{item.time}}</text>
+        </view>
+      </view>
+      <view class="gallery">
+        <view class="gallery-wrap">
+          <image mode="widthFix" src="/pages/assets/curriculumadmin/gallery.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="prompt" wx:if="{{promptShow}}" catchtouchmove='handlemove'>
+  <view class="prompt-content ">
+    <view class="close" bind:tap="promptClose">
+      <image mode='widthFix' src="../../assets/images/close.png"></image>
+    </view>
+    <image class="plank" mode='widthFix' src="../../assets/images/await1.png"></image>
+  </view>
+</view>
+<image class="background" src="../../assets/images/recommend-bg.png"></image>

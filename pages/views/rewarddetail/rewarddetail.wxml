@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="big-picture">
+    <button class="share" open-type="share">
+      <image class='icon' style='top:0;left:0;width:32rpx;' mode='widthFix' src="/pages/assets/curriculum/share.png"></image>
+    </button>
+    <image mode='widthFix' wx:if="{{item.Cover}}" src="{{domainName+item.Cover}}"></image>
+  </view>
+  <view class='containers'>
+    <view class="summary">
+      <text class="title" style='margin-top:25rpx;'>{{item.Name}}</text>
+      <view class="text font-medium-x" style='font-size:24rpx;margin-bottom:6rpx;'>所需积分：{{item.Point}}积分</view>
+      <view class="text t_txt font-medium">该项奖励数量有限，兑完即止。</view>
+      <view class="text t_txt font-medium">兑换成功后，将会有工作人员通过短信或电话的形式与你联系。</view>
+    </view>
+    <view class="summary-border"> </view>
+    <view class="summary">
+      <text class="title" style='margin-bottom:14rpx;'>兑换产品介绍：</text>
+      <view class="text t_txt font-medium-x">{{item.Info}}</view>
+    </view>
+    <button class='btn tc' open-type="{{getPhoneNumber}}" bindgetphonenumber="getPhoneNumber"  style='margin-top:25rpx;background:transparent;' catchtap='select'>立即兑换</button> 
+  </view>
+</view>
+
+<toast id="toast" type="html" attrCss="transform:translateY(-40%);">
+  <view>
+    <view wx:if="{{index==1}}" class='inner btn'>
+      <view class='txts  font-medium'>是否确认兑换，一经兑换将会消耗对应积分</view>
+      <view class='btn tc send' catchtap='send'>确认兑换</view>
+    </view>
+    <view wx:if="{{index==2}}" class='inner  btn'>
+      <view class='h1  font-large-x'>兑换成功</view>
+      <view class='txts  font-medium' style='margin:0;'>请耐心等待工作人员与你联系</view>
+    </view>
+    <view wx:if="{{index==3}}" class='inner btn' style='height:292rpx;'>
+      <view class='txts  font-medium' style='margin-top:60rpx;'>味知积分不足</view>
+      <view class='txts  font-medium' style='margin-top:25rpx;'>去完成更多味知任务吧</view>
+      <view class='btn tc send' catchtap='go'>即刻前往</view>
+    </view>
+  </view>
+</toast>

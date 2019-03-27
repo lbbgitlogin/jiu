@@ -1,0 +1,10 @@
+<image class="cover" mode='widthFix' src="{{frontCoverSrc}}">
+  <image bind:tap="playVideo" class="play" mode='widthFix' src="/pages/assets/images/play.png">
+  </image>
+</image>
+<view wx:if="{{modalShow}}" class="video-modal" catchtouchmove="handletouchmove" bind:touchstart="handletouchtart" bind:touchend='handletouchend'>
+  <view bind:tap="close" class="close">
+      <image class="back" mode='widthFix' src="/pages/assets/images/close.png" />
+  </view>
+  <txv-video class="video" vid="{{src}}" playerid="txv1" autoplay="{{true}}"></txv-video>
+</view>

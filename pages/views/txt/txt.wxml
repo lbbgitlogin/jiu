@@ -1,0 +1,8 @@
+<!--pages/views/txt/txt.wxml-->
+<view class='txt-box'>
+  <!-- <image class='logo' mode='widthFix' src="/pages/assets/images/logo.png" alt=""></image>
+  <view class='h1'>{{obj.title}}</view>
+  <view class='txt' wx:for="{{obj.arr}}">{{item}}</view> -->
+  <image wx:if="{{act==1}}" mode='widthFix' src='https://h5-x-cdn.oss-cn-hangzhou.aliyuncs.com/bacardi/images/txt_1.png'></image>
+  <image wx:if="{{act==2}}" mode='widthFix' src='https://h5-x-cdn.oss-cn-hangzhou.aliyuncs.com/bacardi/images/txt_2.png'></image>
+</view>

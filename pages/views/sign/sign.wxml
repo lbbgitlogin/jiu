@@ -1,0 +1,138 @@
+<view class='content'>
+  <view class="containers">
+    <view class='card'>
+      <image class='card_bg' mode='widthFix' src='../../assets/images/card_bg.png'></image>
+      <view class='btns'>
+      <view class='btn  tc' wx:if="{{!signData.IsSignIn}}" catchtap='showReg'><image mode='widthFix' src='../../assets/images/address1.png'></image><text style='font-size:18rpx;'>酒吧签到</text></view>
+        <view class='tc font-medium' wx:if="{{signData.IsSignIn}}" style='color:#ad8f62;font-size:18rpx;'>今日已签到</view>
+        <view class='num'  style='font-size:18rpx;transform:translateX(4rpx);'>NO:
+          <text >{{cid}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='lines'></view>
+    <view class='title font-medium'>签到累计：</view>
+    <view class='item'>
+      <image wx:for="{{Max}}" mode='widthFix' wx:key="{{item.ID}}" src='../../assets/images/icon{{ (item+1) > signData.SignInSum ? item+1 :item+1+"s"}}.png'></image>
+      <!-- <image mode='widthFix' src='../../assets/images/icon2.png'></image> -->
+      <!-- <image mode='widthFix' src='../../assets/images/icon3.png'></image> -->
+      <!-- <image mode='widthFix' src='../../assets/images/icon4.png'></image> -->
+      <text class='gule' catchtap='showGule'>签到指南</text>
+    </view>
+    <view class='txt_text'>再打卡{{Max-signData.SignInSum}}次，即享免费一杯</view>
+    <view class='lines'></view>
+    <view class='title font-medium-x'>已获得免费券：</view>
+    <view class='ul'>
+      <view class='li {{item.State!=1?"active":""}}' wx:for="{{list}}" wx:key="{{item.ID}}">
+        <image class='bg' src='../../assets/images/{{item.State!=1?"2":"1"}}.png'></image>
+        <view class='text name font-large overtext1'>{{item.Name}}</view>
+        <view class='text font-medium overtext1'>{{item.Info}}</view>
+        <view class='time text font-medium-m overtext1' wx:if="{{item.State==1}}">使用期限：{{item.StarTime}}-{{item.EndTime}}</view>
+        <view class='time text font-medium-m overtext1' wx:if="{{item.State==2}}">兑换时间：{{item.MakeTime}}</view>
+        <view class='time text font-medium-m overtext1' wx:if="{{item.State==3}}">失效于：{{item.EndTime}}</view>
+        <view class='right-btn btn' wx:if="{{item.State==1}}" data-item='{{item}}' catchtap='recommendTo'>点击可用</view>
+        <view class='right-btn btn'  wx:if="{{item.State==2}}">已使用</view>
+        <view class='right-btn btn'  wx:if="{{item.State==3}}">已失效</view>
+      </view>
+      <!-- <view class='li active'>
+        <image class='bg' src='../../assets/images/2.png'></image>
+        <view class='text name font-large'>百加得莫吉多兑换券</view>
+        <view class='text font-medium-x'>仅在百加得指定酒吧使用</view>
+        <view class='time text font-medium-m'>失效于2018.11.20 </view>
+        <view class='right btn'>已失效</view>
+      </view> -->
+    </view>
+    <view class='title font-medium-x tc' style='margin-top:20rpx;' wx:if="{{!list.length}}">暂无免费券</view>
+  </view>
+</view>
+<toast id="toast" type="html">
+  <view wx:if="{{index==0}}" class='inners btn address'>
+    <view class="select" style='margin:0;'>
+      <picker bindchange="bindPickerCityChange" range-key="City" value="{{cityIndex}}" range="{{cityList}}">
+        <view class="picker btn">
+          <text class="label">城市：</text>
+          <text class="value">{{cityList[cityIndex].City}}</text>
+          <text class="down"><text class="icon icon-arrow-down"></text></text>
+        </view>
+      </picker>
+    </view>
+    <view class="select">
+      <picker bindchange="bindPickerBarChange" range-key="Name" value="{{cityIndex}}" range="{{barList}}">
+        <view class="picker btn">
+          <text class="label">酒吧：</text>
+          <text class="value">{{barList[barIndex].Name}}</text>
+          <text class="down"><text class="icon icon-arrow-down"></text></text>
+        </view>
+      </picker>
+    </view>
+    <view class='tip-txt font-medium-s'>请让酒吧工作人员为你登记手机号并点击兑换，一经兑换则该券失效</view>
+    <view class='btn tc send' catchtap='cache' style='margin-top:50rpx;'>兑换</view>
+  </view>
+  <view wx:if="{{index==1}}" class='inners btn'>
+    <view class='txts  font-medium'>是否确认兑换，一经兑换则该券失效</view>
+    <view class='btn tc send' catchtap='send'>确认兑换</view>
+  </view>
+  <view wx:if="{{index==2}}" class='inners  btn'>
+    <view class='h1s  font-large-x'>兑换成功</view>
+    <view class='txts  font-medium' style='margin:0;'>请耐心等待工作人员与你联系</view>
+  </view>
+</toast>
+
+<!-- 签到指南 -->
+<toast id="gule" type="html"  attrCss="transform:translateY(-8%);">
+  <view class='btn box-sign'>
+    <view class='h1'>签到指南</view>
+    <view class='txt-list' wx:for="{{gule}}" wx:key="index">{{item}}</view>
+  </view>
+</toast>
+
+
+
+<!-- 没有识别到位置 -->
+<toast id="tips" type="html">
+  <view class='tips btn tc' style='height:215rpx;'>
+    <view class='txt'>未识别你所在位置的酒吧，</view>
+    <view class='txt'>建议到酒吧门口的室外区域</view>
+    <view class='txt'>或者网络信号好的区域重新签到</view>
+  </view>
+</toast>
+
+<!-- 点击出现酒吧 识别位置出现酒吧 -->
+<toast id="toast-inner" type="html"   attrCss="transform:translateY(-4%);">
+  <view>
+    <view class='btn inner' >
+      <view class='img-box btn'>
+        <view hidden='{{count==0}}' class='icon-img left' catchtap='go' data-act='1'>
+          <image mode='widthFix' src='/pages/assets/images/left.png'></image>
+        </view>
+        <view hidden='{{count==galleryList.length - 1}}' class='icon-img right' catchtap='go' data-act='2'>
+          <image mode='widthFix' src='/pages/assets/images/right.png'></image>
+        </view>
+        <swiper current="{{count}}" bindanimationfinish="bindanimationfinish">
+          <swiper-item wx:for="{{galleryList}}" wx:key="index">
+            <view class='img-boxs'>
+              <image mode='widthFix' data-index="{{index}}" src="{{item ? url + item : ''}} "></image>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+      <view class='box'>
+        <!-- <view class='title fw font-large'>{{selectItem.Name}}</view> -->
+        <view class='title font-large' style='margin-top:6rpx;'>
+          <image class='address' mode='widthFix' style='width:22rpx;margin-right:8rpx;' src='../../assets/images/address.png'></image>识别到你在{{selectItem.Name}}</view>
+        <view class='desc font-medium' style='color:#b18d58;margin:6rpx 0;'>注意:每人一天仅有一次签到机会</view>
+        <view class="btn" catchtap='sign'>签到</view>
+      </view>
+    </view>
+  </view>
+</toast>
+
+
+<!-- 手机授权提示 -->
+<toast id="tips-phone" type="html">
+  <view class='btn tip-inner'>
+    <view class='txt'>签到前需要完成手机号码授权</view>
+    <view class='txt'>实验员申请获得你的手机号码</view>
+    <button class="btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >同意授权</button>
+  </view>
+</toast>

@@ -1,0 +1,29 @@
+/* pages/views/txt/txt.wxss */
+
+.logo {
+  width: 300rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 60rpx;
+  margin-bottom: 50rpx;
+}
+
+.h1 {
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+  padding-bottom: 10rpx;
+}
+
+.txt-box {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 60rpx 56rpx;
+}
+
+.txt {
+  font-size: 20rpx;
+  color: #666;
+  line-height: 35rpx;
+  min-height: 35rpx;
+}

@@ -1,0 +1,309 @@
+/* picker部分 */
+
+.prompt {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+
+.prompt .prompt-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 575rpx;
+  height: 600rpx;
+  overflow: hidden;
+}
+
+.prompt .prompt-content .close {
+  width: 60rpx;
+  height: 62rpx;
+  text-align: center;
+  line-height: 62rpx;
+  margin-bottom: 12rpx;
+  float: right;
+}
+
+.prompt .prompt-content .close image {
+  width: 32rpx;
+  height: 37rpx;
+}
+
+.prompt .prompt-content .plank {
+  width: 99%;
+  height: 413rpx;
+}
+
+.curriculum {
+  width: 640rpx;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.curriculum .select {
+  margin: 0 auto;
+  margin-top: 33rpx;
+  text-align: left;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+picker {
+  width: 100%;
+}
+
+.curriculum .select .picker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 18rpx;
+  /* width: 620rpx; */
+  background-color: #291a0a;
+  /* padding: 0 18rpx; */
+}
+
+.curriculum .select .picker .label {
+  font-size: 25rpx;
+  background-color: #291a0a;
+  color: #635036;
+  flex: 4;
+}
+
+.curriculum .select .picker .value {
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: #291a0a;
+  flex: 4;
+  text-align: center;
+}
+
+.curriculum .select .picker .down {
+  flex: 4;
+  text-align: right;
+}
+
+.curriculum .select .picker .down text {
+  font-size: 25rpx;
+  background-color: #291a0a;
+  color: #635036;
+}
+
+/* 轮播部分 */
+
+.scroll-view {
+  height: 700rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-view .arrow-up, .scroll-view .arrow-down {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  width: 100%;
+}
+
+.scroll-view .arrow-up > view, .scroll-view .arrow-down > view {
+  height: 30rpx;
+  width: 50rpx;
+  margin: 0 auto;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.scroll-view .arrow-up image, .scroll-view .arrow-down image {
+  height: 28rpx;
+  width: 35rpx;
+}
+
+.scroll-view .contents {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-view .contents .wrap {
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.scroll-view .contents .scroll-item {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  height: 206rpx;
+  width: 100%;
+  margin: auto 0;
+  border-radius: 5px;
+  background-color: #3d3834;
+  transform: scale(0.9);
+  display: flex;
+  /* opacity: 0.8; */
+  justify-content: space-between;
+  align-items: center;
+  /* -webkit-filter: brightness(0.9); */
+}
+
+.scroll-view .contents .scroll-item > view {
+  opacity: 0.5;
+}
+
+.scroll-view .contents .scroll-item > view {
+  display: inline-block;
+}
+
+.scroll-view .contents .scroll-item > view.image {
+  margin-left: 25rpx;
+  height: 170rpx;
+  line-height: 170rpx;
+  width: 150rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in;
+}
+
+.scroll-view .contents .scroll-item > view.image > image {
+  width: 106rpx;
+  height: 106rpx;
+  display: inline-block;
+}
+
+.scroll-view .contents .scroll-item > view.border {
+  height: 160rpx;
+  width: 2px;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.4) 10%, rgba(255, 255, 255, 0.4) 20%, rgba(255, 255, 255, 0.6) 30%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 0.6) 70%, rgba(255, 255, 255, 0.4) 80%, rgba(255, 255, 255, 0.4) 90%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+.scroll-view .contents .scroll-item > view.article {
+  width: 350rpx;
+  height: 112rpx;
+  margin-right: 80rpx;
+  padding-left: 50rpx;
+  color: #fff;
+  text-align: left;
+  overflow: hidden;
+  transform: translateY(4rpx);
+}
+
+.scroll-view .contents .scroll-item > view.article  text {
+  color: #fff;
+}
+
+.scroll-view .contents .scroll-item > view.article .title {
+  font-weight: bold;
+  margin-bottom: 4rpx;
+}
+
+.scroll-view .contents .scroll-item > view.article .guest {
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  font-weight: bold;
+  /* text-overflow: ellipsis; */
+  white-space: nowrap;
+}
+
+.scroll-view .contents .scroll-item > view.article .date {
+  opacity: 0.5;
+  text-decoration: underline;
+}
+
+.scroll-view .contents .scroll-item.current {
+  background-color: #b18d58;
+  transform: scale(1);
+  height: 200rpx;
+  opacity: 1;
+  z-index: 10;
+  /* -webkit-filter: brightness(1); */
+}
+
+.scroll-view .contents .scroll-item.next {
+  transform: scale(0.9) translateY(-20rpx);
+  z-index: 2;
+  overflow: hidden;
+}
+
+.scroll-view .contents .scroll-item.prev {
+  transform: scale(0.9) translateY(20rpx);
+  z-index: 2;
+  overflow: hidden;
+}
+
+.scroll-view .contents .scroll-item.nexts {
+  transform: scale(0.75) translateY(-200rpx);
+  overflow: hidden;
+}
+
+.scroll-view .contents .scroll-item.prevs {
+  transform: scale(0.75) translateY(200rpx);
+  overflow: hidden;
+}
+
+.scroll-view .contents .scroll-item.next > view.image {
+  transform: scale(0.85);
+}
+
+.scroll-view .contents .scroll-item.prev > view.image {
+  transform: scale(0.85);
+}
+
+.scroll-view .contents .scroll-item.nexts > view.image {
+  transform: scale(0.75);
+}
+
+.scroll-view .contents .scroll-item.prevs > view.image {
+  transform: scale(0.75);
+}
+
+.scroll-view .contents .scroll-item.current > view {
+  opacity: 1;
+}
+
+/* 底部部分 */
+
+.wall {
+  margin-bottom: 15rpx;
+}
+
+.routine-recommend {
+  display: flex;
+  width: 640rpx;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.routine-recommend > view {
+  width: 312rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-icon {
+  margin-bottom: 10rpx;
+  width: 62rpx;
+  height: 62rpx;
+}
+
+.routine-recommend > .routine {
+  float: left;
+}
+
+.routine-recommend > .recommend {
+  float: right;
+}

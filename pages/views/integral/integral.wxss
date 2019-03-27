@@ -1,0 +1,85 @@
+.container {
+  padding: 60rpx 55rpx 60rpx 55rpx;
+  background-size: 100% 100%;
+  font-size: 24rpx;
+  font-family: "微软雅黑";
+  height: auto;
+  min-height: 100vh;
+}
+
+.recommend-list {
+  margin-top: 33rpx;
+}
+
+.recommend-item {
+  height: 160rpx;
+  width: 100%;
+  margin-bottom: 25rpx;
+  overflow: hidden;
+  display: flex;
+}
+
+.item-pic {
+  width: 212rpx;
+  height: 100%;
+  border-right: 2rpx solid #a98d63;
+  position: relative;
+  overflow: hidden;
+}
+
+.item-pic image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.item-info {
+  flex: 1;
+  /* padding-top: 36rpx; */
+  padding-top: 46rpx;
+  padding-left: 62rpx;
+  width: 410rpx;
+}
+
+.item-info-tit {
+  font-size: 28rpx;
+  color: #ad8f62;
+  margin-bottom: 14rpx;
+  display: flex;
+  align-items: center;
+}
+
+.item-info-h6 {
+  display: block;
+  color: #8d734f;
+  box-sizing: border-box;
+  padding-right: 40rpx;
+  width: 100%;
+  line-height: 30rpx;
+  height: 60rpx;
+  overflow: hidden;
+}
+
+.item-info-difficult {
+  display: flex;
+}
+
+.difficult-tit {
+  color: #5f4c35;
+}
+
+.difficult-pic image {
+  width: 25rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+  opacity: 0.4;
+}
+
+.difficult-pic image.lighten {
+  opacity: 1;
+}
+
+.name {
+  max-width: 260rpx;
+}

@@ -1,0 +1,65 @@
+<view class='content'>
+  <view class="container">
+    <view class="curriculum" bind:touchstart="handletouchtart" catchtouchmove='handletouchmove' bind:touchend='handletouchend'>
+      <text class='title_text'>线下实验室</text>
+      <view class="select">
+        <picker bindchange="bindPickerChange" range-key="City" value="{{cityIndex}}" range="{{array}}">
+          <view class="picker btn">
+            <text class="label">城市：</text>
+            <text class="value">{{array[cityIndex].City}}</text>
+            <text class="down">
+                        <text class="icon icon-arrow-down"></text>
+            </text>
+          </view>
+        </picker>
+      </view>
+      <view class="scroll-view" style='height:{{h}}px'>
+        <view class="arrow-up">
+          <view bind:tap="prev">
+            <image mode='widthFix' src="/pages/assets/images/laboratory-arrow-up.png" alt=""></image>
+          </view>
+        </view>
+        <view class="contents">
+          <view wx:for="{{swiperList}}" bind:tap="scrollItemTo" data-link="{{item.link}}" wx:key="index" class="scroll-item" style='{{item.style}}'>
+            <view class="image">
+              <image class='icon' src="{{item.src}}"></image>
+            </view>
+            <view class="border"></view>
+            <view class="article">
+              <view class="title"><view class=' icon-box font-large-x'>{{item.title}}<text class="icon icon-arrow-right txt" style='font-size:20rpx;'></text></view></view>
+              <view class="guest font-large">
+                <text>嘉宾：</text>
+                <text>{{item.guest}}</text>
+              </view>
+              <text class='date font-medium'>{{item.time}}</text>
+              <!-- <view class=""></view> -->
+            </view>
+          </view>
+        </view>
+        <view class="arrow-down">
+          <view bind:tap="next">
+            <image mode='widthFix' src="/pages/assets/images/laboratory-arrow-down.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="wall btn" bind:tap="lookPictureTo">查看过往课程照片</view>
+      <view class="routine-recommend">
+        <view class="routin btn" bind:tap="oldpracticeTo">
+          <image class='btn-icon btn-icon-small' src="/pages/assets/laboratory/routine.png"></image>
+          <view class='font-medium icon-box'>味知轶事
+            <text class="icon txt icon-arrow-right"></text>
+          </view>
+        </view>
+        <view class="recommend btn" bind:tap="recommendTo">
+          <image class='btn-icon btn-icon-small' src="/pages/assets/laboratory/recommend.png"></image>
+          <view class='font-medium  icon-box'>鸡尾酒推荐
+            <text class="icon txt icon-arrow-right"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 提示 -->
+<toast id="toast"></toast>
+<image class="background" src="../../assets/images/recommend-bg.png"></image>

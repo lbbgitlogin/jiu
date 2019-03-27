@@ -1,0 +1,94 @@
+.container {
+  padding: 0;
+  width: 100%;
+}
+
+.container .big-picture {
+  height: 460rpx;
+  width: 100%;
+  padding-top: 60rpx;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 20;
+  top: 0;
+}
+
+.container .big-picture-sham {
+  height: 460rpx;
+  transition: all 0.3s;
+}
+
+.container .big-picture .header {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.container .header .header-right image.picture {
+  margin-right: 40rpx;
+}
+
+.container .big-picture .bottom .contents {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container .big-picture image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+.title {
+  display: block;
+  font-size: 32rpx;
+  line-height: 40rpx;
+  font-weight: blod;
+}
+
+ .text {
+  display: block;
+  font-size: 20rpx;
+  line-height: 35rpx;
+}
+
+
+
+.summary-border {
+  margin: 50rpx 0;
+  height: 1px;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(40, 40, 40, 0.1) 0%, rgba(40, 40, 40, 0.8) 50%, rgba(40, 40, 40, 0.1) 100%);
+}
+
+.t_txt {
+  opacity: 0.8;
+}
+
+.inner {
+  height: 220rpx;
+  text-align: center;
+}
+
+.txts {
+  margin-top: 50rpx;
+  color: #8d734f;
+}
+
+.send {
+  position: absolute;
+  width: 395rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 50rpx;
+}
+.h1{
+  margin-top: 75rpx;
+  padding-bottom: 25rpx;
+}
